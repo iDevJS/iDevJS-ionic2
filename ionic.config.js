@@ -18,9 +18,14 @@ module.exports = {
       src: ['node_modules/ionic-framework/fonts/**/*.+(ttf|woff|woff2)'],
       dest: "www/build/fonts"
     },
+    img: {
+      src: ['app/img/**/*.+(png|gif|jpg|jpeg)'],
+      dest: "www/build/img"  
+    },
     watch: {
       sass: ['app/**/*.scss'],
       html: ['app/**/*.html'],
+      img: ['app/img/*'],
       livereload: [
         'www/build/**/*.html',
         'www/build/**/*.js',

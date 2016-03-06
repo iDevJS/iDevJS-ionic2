@@ -1,4 +1,5 @@
 import {Page, NavController, Storage, SqlStorage} from 'ionic-framework/ionic'
+import {LoginPage} from '../login/login'
 import {UserProfilePage} from '../user-profile/user-profile'
 import {UserPostPage} from '../user-post/user-post'
 import {UserCommentPage} from '../user-comment/user-comment'
@@ -16,8 +17,10 @@ import {SettingPage} from '../setting/setting'
 })
 export class AccountPage {
   nightMode:boolean
+  isLogin: boolean
   local:any
   pageList: Object = {
+      login: LoginPage,
       profile: UserProfilePage,
       post: UserPostPage,
       comment: UserCommentPage,
@@ -29,6 +32,8 @@ export class AccountPage {
     this.local = new Storage(SqlStorage)
     this.local.get('setting.nightMode')
         .then((val) => this.nightMode = val || false)
+    this.local.get('bearerToken')
+        .then((val) => this.isLogin = val || false)
   }
   goPage(text){
       this.nav.push(this.pageList[text])

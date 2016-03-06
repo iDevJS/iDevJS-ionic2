@@ -9,16 +9,22 @@
 </ion-navbar>
 
 <ion-content>
-    <ion-list>
+    <ion-list *ngIf="isLogin">
       <button class="item" ion-item (click)="goPage('profile')">
           <ion-avatar item-left>
-            <img src="https://avatars1.githubusercontent.com/u/1656327?v=3&s=460" alt="">
+            <img src="/img/avatar.png" alt="">
           </ion-avatar>
           <h2>Coder sir</h2>
           <p>@codersir</p>
         </button>
     </ion-list>
-    
+    <ion-list *ngIf="!isLogin">
+        <ion-avatar item-center>
+            <!--<img src="/img/avatar.png">-->
+        </ion-avatar>
+        <button item-center (click)="goPage('login')">Login</button>
+    </ion-list>
+        
     <ion-list>
         <button class="item" ion-item (click)="goPage('post')">
             <ion-icon name="create-outline" item-left></ion-icon>
