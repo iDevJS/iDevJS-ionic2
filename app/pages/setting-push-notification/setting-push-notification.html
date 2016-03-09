@@ -1,0 +1,44 @@
+<!--
+  Generated template for the SettingPushNotificationPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-navbar *navbar>
+    <ion-title>Setting Push Notification</ion-title>
+</ion-navbar>
+
+<ion-content class="setting-push-notification">
+    <ion-list>
+        <ion-list-header>
+            打开后将推送相应类型的消息
+        </ion-list-header>
+        <ion-item>
+            <ion-toggle [(ngModel)]="notification.recommend" (ngModelChange)="updatePushSetting($event)"></ion-toggle>
+            <ion-label>社区特别推荐</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-toggle [(ngModel)]="notification.followme" (ngModelChange)="updatePushSetting($event)"></ion-toggle>
+            <ion-label>有人关注我</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-toggle [(ngModel)]="notification.mentionme" (ngModelChange)="updatePushSetting($event)"></ion-toggle>
+            <ion-label>有人 @ 我</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-toggle [(ngModel)]="notification.commentme" (ngModelChange)="updatePushSetting($event)"></ion-toggle>
+            <ion-label>有人评论我的文章</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-toggle [(ngModel)]="notification.subscribeme" (ngModelChange)="updatePushSetting($event)"></ion-toggle>
+            <ion-label>有人订阅我的文集</ion-label>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-item>
+            <ion-toggle [(ngModel)]="notification.quietMode" (ngModelChange)="updatePushSetting($event)"></ion-toggle>
+            <ion-label>勿扰模式</ion-label>
+        </ion-item>
+    </ion-list>
+    <ion-list-footer>开启后晚上 10:00 至上午 10:00 间将不会收到推送消息。</ion-list-footer>
+</ion-content>

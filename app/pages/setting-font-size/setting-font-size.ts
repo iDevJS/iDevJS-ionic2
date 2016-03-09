@@ -1,16 +1,16 @@
 import {Page, NavController} from 'ionic-angular'
 
 /*
-  Generated class for the MessagePage page.
+  Generated class for the SettingFontSizePage page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
 @Page({
-  templateUrl: 'build/pages/message/message.html',
+  templateUrl: 'build/pages/setting-font-size/setting-font-size.html',
 })
-export class MessagePage {
+export class SettingFontSizePage {
   constructor(private nav: NavController) {
-    this.nav = nav;
+    this.nav = nav
   }
 }

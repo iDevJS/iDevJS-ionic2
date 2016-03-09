@@ -5,46 +5,46 @@
   Ionic pages and navigation.
 -->
 <ion-navbar *navbar hideBackButton class="show-navbar android-attr">
-  <ion-title>Account</ion-title>
+    <ion-title>Account</ion-title>
 </ion-navbar>
 
 <ion-content>
     <ion-list *ngIf="isLogin">
-      <button class="item" ion-item (click)="goPage('profile')">
-          <ion-avatar item-left>
-            <img src="/img/avatar.png" alt="">
-          </ion-avatar>
-          <h2>Coder sir</h2>
-          <p>@codersir</p>
+        <button class="item" ion-item (click)="goPage('profile')">
+            <ion-avatar item-left>
+                <img src="/img/avatar.png" alt="">
+            </ion-avatar>
+            <h2>Coder sir</h2>
+            <p>@codersir</p>
         </button>
     </ion-list>
-    <ion-list *ngIf="!isLogin">
-        <ion-avatar item-center>
-            <!--<img src="/img/avatar.png">-->
+    <ion-list *ngIf="!isLogin" class="align-center">
+        <ion-avatar class="align-center">
+            <img src="/img/avatar.png" alt="">
         </ion-avatar>
-        <button item-center (click)="goPage('login')">Login</button>
+        <button small (click)="goPage('login')">Login</button>
     </ion-list>
-        
+
     <ion-list>
         <button class="item" ion-item (click)="goPage('post')">
             <ion-icon name="create-outline" item-left></ion-icon>
             我的文章
             <!--<ion-badge item-right>12</ion-badge>-->
         </button>
-        <button class="item" ion-item  (click)="goPage('comment')">
+        <button class="item" ion-item (click)="goPage('comment')">
             <ion-icon name="chatbubbles-outline" item-left></ion-icon>
             我的评论
             <!--<ion-badge item-right>32</ion-badge>-->
         </button>
-        <button class="item" ion-item  (click)="goPage('like')">
+        <button class="item" ion-item (click)="goPage('like')">
             <ion-icon name="heart-outline" item-left></ion-icon>
             我的喜欢
         </button>
-      </ion-list>
-      
-      <ion-list>
+    </ion-list>
+
+    <ion-list>
         <ion-item>
-            <ion-toggle [(ngModel)]="nightMode" (ngModelChange)="toggleMode($event)"></ion-toggle>   
+            <ion-toggle [(ngModel)]="nightMode" (ngModelChange)="toggleMode($event)"></ion-toggle>
             <ion-label>夜间模式</ion-label>
             <ion-icon name="moon-outline" item-left></ion-icon>
         </ion-item>
@@ -52,5 +52,5 @@
             <ion-icon name="cog-outline" item-left></ion-icon>
             设置
         </button>
-      </ion-list>
+    </ion-list>
 </ion-content>

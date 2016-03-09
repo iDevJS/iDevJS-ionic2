@@ -1,4 +1,4 @@
-import {Page, NavController} from 'ionic-framework/ionic'
+import {Page, Modal, NavController} from 'ionic-angular'
 import {LoginPage} from '../login/login'
 /*
   Generated class for the HomePage page.
@@ -18,7 +18,32 @@ export class HomePage {
         login: LoginPage
     }
   }
+  doRefresh(refresher) {
+    console.log('Doing Refresh', refresher)
+
+    setTimeout(() => {
+      refresher.complete();
+      console.log("Complete");
+    }, 5000);
+  }
+
+  doStart(refresher) {
+    console.log('Doing Start', refresher);
+  }
+
+  doPulling(refresher) {
+    console.log('Pulling', refresher);
+  }
+  
   goPage(text){
-    this.nav.push(this.pageList[text])
+    let loginModal = Modal.create(LoginPage)
+    console.log(loginModal)
+    this.nav.present(loginModal)
+    // this.nav.push(this.pageList[text])
+  }
+  
+  loadmore(infiniteScroll){
+      console.log('load more post')
+      infiniteScroll.complete()
   }
 }

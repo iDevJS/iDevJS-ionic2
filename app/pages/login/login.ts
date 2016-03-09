@@ -1,4 +1,4 @@
-import {Page, NavController} from 'ionic-framework/ionic'
+import {Page, NavController} from 'ionic-angular'
 
 /*
   Generated class for the LoginPage page.
@@ -10,7 +10,7 @@ import {Page, NavController} from 'ionic-framework/ionic'
   templateUrl: 'build/pages/login/login.html',
 })
 export class LoginPage {
-  action:string = 'login'
+  action:string = 'Login'
   constructor(private nav: NavController) {
     this.nav = nav
   }

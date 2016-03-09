@@ -5,9 +5,33 @@
   Ionic pages and navigation.
 -->
 <ion-navbar *navbar>
-  <ion-title>Setting</ion-title>
+    <ion-title>Setting</ion-title>
 </ion-navbar>
 
 <ion-content class="setting">
-  
+    <ion-list>
+        <ion-item>
+            <ion-toggle [(ngModel)]="noPicMode" (ngModelChange)="togglePicMode($event)"></ion-toggle>
+            <ion-label>无图模式</ion-label>
+        </ion-item>
+        <button class="item" ion-item (click)="goPage('settingFontSize')">
+            字体大小
+        </button>
+    </ion-list>
+    <ion-list>
+        <button class="item" ion-item (click)="goPage('settingPushNotification')">
+            推送消息设置
+        </button>
+        <button class="item" ion-item (click)="goPage('settingMessageNotification')">
+            消息与提醒设置
+        </button>
+    </ion-list>
+    <ion-list>
+        <ion-item>
+            <ion-label>语言</ion-label>
+            <ion-select [(ngModel)]="language" (ngModelChange)="selectLang($event)">
+                <ion-option *ngFor="#item of languageMap" value="{{item.val}}">{{item.text}}</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
 </ion-content>

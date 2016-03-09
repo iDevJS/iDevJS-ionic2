@@ -1,4 +1,4 @@
-import {App, IonicApp, Platform} from 'ionic-framework/ionic'
+import {App, IonicApp, Platform} from 'ionic-angular'
 import {HomePage} from './pages/home/home'
 import {ExplorePage} from './pages/explore/explore'
 import {MessagePage} from './pages/message/message'

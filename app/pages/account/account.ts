@@ -1,4 +1,4 @@
-import {Page, NavController, Storage, SqlStorage} from 'ionic-framework/ionic'
+import {Page, NavController, Storage, SqlStorage} from 'ionic-angular'
 import {LoginPage} from '../login/login'
 import {UserProfilePage} from '../user-profile/user-profile'
 import {UserPostPage} from '../user-post/user-post'
