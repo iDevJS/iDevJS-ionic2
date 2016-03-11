@@ -7,25 +7,20 @@ module.exports = {
       dest: "www/build"
     },
     sass: {
-      src: ['app/theme/app.+(ios|md).scss'],
+      src: ['app/theme/app.+(ios|md|wp).scss'],
       dest: 'www/build/css',
       include: [
-        'node_modules/ionic-framework',
+        'node_modules/ionic-angular',
         'node_modules/ionicons/dist/scss'
       ]
     },
     fonts: {
-      src: ['node_modules/ionic-framework/fonts/**/*.+(ttf|woff|woff2)'],
+      src: ['node_modules/ionic-angular/fonts/**/*.+(ttf|woff|woff2)'],
       dest: "www/build/fonts"
-    },
-    img: {
-      src: ['app/img/**/*.+(png|gif|jpg|jpeg)'],
-      dest: "www/build/img"  
     },
     watch: {
       sass: ['app/**/*.scss'],
       html: ['app/**/*.html'],
-      img: ['app/img/*'],
       livereload: [
         'www/build/**/*.html',
         'www/build/**/*.js',

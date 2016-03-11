@@ -1,5 +1,6 @@
 import {Page, NavController, Storage, SqlStorage} from 'ionic-angular'
 import {SettingPushNotificationPage} from '../setting-push-notification/setting-push-notification'
+import {SettingNotificationPage} from '../setting-notification/setting-notification'
 import {SettingFontSizePage} from '../setting-font-size/setting-font-size'
 /*
   Generated class for the SettingPage page.
@@ -25,7 +26,8 @@ export class SettingPage {
     ]
     pageList:Object = {
         'settingPushNotification': SettingPushNotificationPage,
-        'settingFontSize': SettingFontSizePage
+        'settingNotification': SettingNotificationPage,
+        'settingFontSize': SettingFontSizePage        
     }
     constructor(private nav: NavController) {
         this.nav = nav

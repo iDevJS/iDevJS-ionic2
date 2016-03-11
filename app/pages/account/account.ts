@@ -33,7 +33,7 @@ export class AccountPage {
     this.local.get('setting.nightMode')
         .then((val) => this.nightMode = val || false)
     this.local.get('bearerToken')
-        .then((val) => this.isLogin = val || false)
+        .then((val) => this.isLogin = val || true)
   }
   goPage(text){
       this.nav.push(this.pageList[text])

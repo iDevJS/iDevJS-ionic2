@@ -1,5 +1,7 @@
 import {Page, Modal, NavController} from 'ionic-angular'
+import {Geolocation, TouchID} from 'ionic-native'
 import {LoginPage} from '../login/login'
+
 /*
   Generated class for the HomePage page.
 
@@ -7,43 +9,48 @@ import {LoginPage} from '../login/login'
   Ionic pages and navigation.
 */
 @Page({
-  templateUrl: 'build/pages/home/home.html',
+    templateUrl: 'build/pages/home/home.html',
 })
 export class HomePage {
-  pageList: Object
-  constructor(private nav: NavController) {
-    this.nav = nav
-    
-    this.pageList = {
-        login: LoginPage
+    pageList: Object
+    constructor(private nav: NavController) {
+        this.nav = nav
+        this.pageList = {
+            login: LoginPage
+        }
     }
-  }
-  doRefresh(refresher) {
-    console.log('Doing Refresh', refresher)
+    onPageLoaded() {
+        console.log(TouchID)
+        Geolocation.getCurrentPosition().then(pos => {
+            console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+        })
+    }
+    doRefresh(refresher) {
+        console.log('Doing Refresh', refresher)
 
-    setTimeout(() => {
-      refresher.complete();
-      console.log("Complete");
-    }, 5000);
-  }
+        setTimeout(() => {
+            refresher.complete();
+            console.log("Complete");
+        }, 5000);
+    }
 
-  doStart(refresher) {
-    console.log('Doing Start', refresher);
-  }
+    doStart(refresher) {
+        console.log('Doing Start', refresher);
+    }
 
-  doPulling(refresher) {
-    console.log('Pulling', refresher);
-  }
-  
-  goPage(text){
-    let loginModal = Modal.create(LoginPage)
-    console.log(loginModal)
-    this.nav.present(loginModal)
-    // this.nav.push(this.pageList[text])
-  }
-  
-  loadmore(infiniteScroll){
-      console.log('load more post')
-      infiniteScroll.complete()
-  }
+    doPulling(refresher) {
+        console.log('Pulling', refresher);
+    }
+
+    goPage(text) {
+        let loginModal = Modal.create(LoginPage)
+        console.log(loginModal)
+        this.nav.present(loginModal)
+        // this.nav.push(this.pageList[text])
+    }
+
+    loadmore(infiniteScroll) {
+        console.log('load more post')
+        infiniteScroll.complete()
+    }
 }
