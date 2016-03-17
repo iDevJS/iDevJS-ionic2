@@ -1,5 +1,5 @@
 import {Page, Modal, NavController} from 'ionic-angular'
-import {Geolocation, TouchID} from 'ionic-native'
+// import {Geolocation, TouchID} from 'ionic-native'
 import {LoginPage} from '../login/login'
 
 /*
@@ -20,10 +20,9 @@ export class HomePage {
         }
     }
     onPageLoaded() {
-        console.log(TouchID)
-        Geolocation.getCurrentPosition().then(pos => {
-            console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
-        })
+        // Geolocation.getCurrentPosition().then(pos => {
+        //     console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+        // })
     }
     doRefresh(refresher) {
         console.log('Doing Refresh', refresher)

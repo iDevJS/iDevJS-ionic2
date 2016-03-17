@@ -28,9 +28,11 @@
     </ion-list>
     <ion-list>
         <ion-item>
-            <ion-label>语言</ion-label>
-            <ion-select [(ngModel)]="language" (ngModelChange)="selectLang($event)">
-                <ion-option *ngFor="#item of languageMap" value="{{item.val}}">{{item.text}}</ion-option>
+            <ion-label (click)="selectLang()">语言</ion-label>
+            <ion-select [(ngModel)]="language" (click)="selectLang()" (ngModelChange)="selectLang($event)">
+                <!--<ion-option *ngFor="#item of languageMap" value="{{item.val}}">{{item.text}}</ion-option>-->
+                <ion-option value="nes">NES</ion-option>
+                <ion-option value="n64">Nintendo64</ion-option>
             </ion-select>
         </ion-item>
     </ion-list>

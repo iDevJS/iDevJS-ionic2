@@ -28,6 +28,6 @@ export class SettingNotificationPage {
             .then((val) => this.notification = JSON.parse(val) || this.notification)
     }
     updateNotificationSetting() {
-        this.local.get('setting.notification', JSON.stringify(this.notification))
+        this.local.set('setting.notification', JSON.stringify(this.notification))
     }
 }

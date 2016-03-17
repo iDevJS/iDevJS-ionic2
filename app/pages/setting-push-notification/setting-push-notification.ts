@@ -11,7 +11,7 @@ import {Page, NavController, Storage, SqlStorage} from 'ionic-angular'
 })
 export class SettingPushNotificationPage {
   local:any
-  notification:Object = {
+  push:Object = {
       recommend: true,
       followme: true,
       mentionme: true,
@@ -23,11 +23,11 @@ export class SettingPushNotificationPage {
   constructor(private nav: NavController) {
     this.nav = nav
     this.local = new Storage(SqlStorage)
-    this.local.get('setting.pushNotification')
-        .then((val) => this.notification = JSON.parse(val) || this.notification)
+    this.local.get('setting.push')
+        .then((val) => this.push = JSON.parse(val) || this.push)
   }
   
   updatePushSetting(){
-      this.local.set('setting.pushNotification', JSON.stringify(this.notification))
+      this.local.set('setting.push', JSON.stringify(this.push))
   }
 }

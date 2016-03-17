@@ -14,29 +14,29 @@
             打开后将推送相应类型的消息
         </ion-list-header>
         <ion-item>
-            <ion-toggle [(ngModel)]="notification.recommend" (ngModelChange)="updatePushSetting($event)"></ion-toggle>
+            <ion-toggle [(ngModel)]="push.recommend" (ngModelChange)="updatePushSetting($event)"></ion-toggle>
             <ion-label>社区特别推荐</ion-label>
         </ion-item>
         <ion-item>
-            <ion-toggle [(ngModel)]="notification.followme" (ngModelChange)="updatePushSetting($event)"></ion-toggle>
+            <ion-toggle [(ngModel)]="push.followme" (ngModelChange)="updatePushSetting($event)"></ion-toggle>
             <ion-label>有人关注我</ion-label>
         </ion-item>
         <ion-item>
-            <ion-toggle [(ngModel)]="notification.mentionme" (ngModelChange)="updatePushSetting($event)"></ion-toggle>
+            <ion-toggle [(ngModel)]="push.mentionme" (ngModelChange)="updatePushSetting($event)"></ion-toggle>
             <ion-label>有人 @ 我</ion-label>
         </ion-item>
         <ion-item>
-            <ion-toggle [(ngModel)]="notification.commentme" (ngModelChange)="updatePushSetting($event)"></ion-toggle>
+            <ion-toggle [(ngModel)]="push.commentme" (ngModelChange)="updatePushSetting($event)"></ion-toggle>
             <ion-label>有人评论我的文章</ion-label>
         </ion-item>
         <ion-item>
-            <ion-toggle [(ngModel)]="notification.subscribeme" (ngModelChange)="updatePushSetting($event)"></ion-toggle>
+            <ion-toggle [(ngModel)]="push.subscribeme" (ngModelChange)="updatePushSetting($event)"></ion-toggle>
             <ion-label>有人订阅我的文集</ion-label>
         </ion-item>
     </ion-list>
     <ion-list>
         <ion-item>
-            <ion-toggle [(ngModel)]="notification.quietMode" (ngModelChange)="updatePushSetting($event)"></ion-toggle>
+            <ion-toggle [(ngModel)]="push.quietMode" (ngModelChange)="updatePushSetting($event)"></ion-toggle>
             <ion-label>勿扰模式</ion-label>
         </ion-item>
     </ion-list>
