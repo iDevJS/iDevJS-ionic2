@@ -1,5 +1,5 @@
 import {Page, NavController} from 'ionic-angular'
-
+import {Toast} from 'ionic-native'
 /*
   Generated class for the LoginPage page.
 
@@ -13,5 +13,9 @@ export class LoginPage {
   action:string = 'Login'
   constructor(private nav: NavController) {
     this.nav = nav
+  }
+  
+  onLogin(){
+     Toast.show('', 'short', 'center')
   }
 }

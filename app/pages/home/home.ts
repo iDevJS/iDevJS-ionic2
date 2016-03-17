@@ -1,5 +1,5 @@
 import {Page, Modal, NavController} from 'ionic-angular'
-import {Geolocation, TouchID} from 'ionic-native'
+import {Geolocation, TouchID, AppVersion, StatusBar, Device} from 'ionic-native'
 import {LoginPage} from '../login/login'
 
 /*
@@ -20,10 +20,19 @@ export class HomePage {
         }
     }
     onPageLoaded() {
-        console.log(TouchID)
+        StatusBar.backgroundColorByHexString('#ffb400')
+        StatusBar.overlaysWebView(false)
         Geolocation.getCurrentPosition().then(pos => {
             console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
         })
+        AppVersion.getVersionCode().then(code => {
+            console.log(code)
+        })
+        AppVersion.getVersionNumber().then(version => {
+            console.log(version)
+        })
+        let info = Device.device
+        console.log(info)
     }
     doRefresh(refresher) {
         console.log('Doing Refresh', refresher)
@@ -31,7 +40,7 @@ export class HomePage {
         setTimeout(() => {
             refresher.complete();
             console.log("Complete");
-        }, 5000);
+        }, 2000);
     }
 
     doStart(refresher) {
