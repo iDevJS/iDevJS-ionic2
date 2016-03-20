@@ -1,5 +1,5 @@
 import {Page, NavController} from 'ionic-angular'
-
+import {Badge} from 'ionic-native'
 /*
   Generated class for the MessagePage page.
 
@@ -7,10 +7,17 @@ import {Page, NavController} from 'ionic-angular'
   Ionic pages and navigation.
 */
 @Page({
-  templateUrl: 'build/pages/message/message.html',
+    templateUrl: 'build/pages/message/message.html',
 })
 export class MessagePage {
-  constructor(private nav: NavController) {
-    this.nav = nav;
-  }
+    constructor(private nav: NavController) {
+        this.nav = nav
+        Badge.clear()
+    }
+
+    onReceiveMessage() {
+        Badge.hasPermission().then(() => {
+            Badge.increase(1)
+        })
+    }
 }

@@ -52,11 +52,11 @@ class MyApp {
     })
   }
 
-  openPage(page) {
-    // close the menu when clicking a link from the menu
-    this.app.getComponent('leftMenu').close()
-    // navigate to the new page if it is not the current page
-    let nav = this.app.getComponent('nav')
-    nav.setRoot(page.component)
-  }
+//   openPage(page) {
+//     // close the menu when clicking a link from the menu
+//     this.app.getComponent('leftMenu').close()
+//     // navigate to the new page if it is not the current page
+//     let nav = this.app.getComponent('nav')
+//     nav.setRoot(page.component)
+//   }
 }
