@@ -15,6 +15,10 @@ export class LoginPage {
     this.nav = nav
   }
   
+  onPageLoaded(){
+      localStorage.setItem('idevjs_token', 'cfd6275cb154ddb57d18f544544d72475f959964')
+  }
+  
   onLogin(){
      Toast.show('', 'short', 'center')
   }

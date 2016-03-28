@@ -1,6 +1,10 @@
 ///<reference path="../node_modules/angular2/typings/browser.d.ts"/>
 ///<reference path="../typings/browser/ambient/es6-shim/es6-shim.d.ts"/>
 import {App, IonicApp, Platform} from 'ionic-angular'
+import {Provider, provide} from 'angular2/core'
+import {HTTP_PROVIDERS, Http} from 'angular2/http'
+import 'rxjs/add/operator/map'
+import {Client, AuthConfig} from 'idevjs-angular-client/api'
 import {HomePage} from './pages/home/home'
 import {ExplorePage} from './pages/explore/explore'
 import {MessagePage} from './pages/message/message'
@@ -8,6 +12,12 @@ import {AccountPage} from './pages/account/account'
 
 @App({
   templateUrl: 'build/app.html',
+  providers: [provide(Client, {
+        useFactory: (http) => {
+            return new Client(new AuthConfig({}), http)
+        },
+        deps: [Http]
+    })],
   config: {
       tabSubPages: true,
       backButtonText: ''

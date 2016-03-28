@@ -5,9 +5,20 @@
   Ionic pages and navigation.
 -->
 <ion-navbar *navbar>
-    <ion-title>postDetail</ion-title>
+    <ion-title>{{post?.title}}</ion-title>
 </ion-navbar>
 
-<ion-content padding class="post-detail">
-
+<ion-content class="post-detail">
+    <ion-card>
+        <ion-item>
+            <ion-avatar item-left>
+                <img src="{{post?.author?.gravatar}}" alt="">
+            </ion-avatar>
+            <h2>{{post?.author?.name}}</h2>
+            <p>{{post?.created_at | date: 'short'}} • <ion-icon name="eye"></ion-icon>  {{post?.views_count}} </p>
+        </ion-item>
+        <ion-card-content>
+            <ion-scroll [innerHTML]="post?.content"></ion-scroll>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
