@@ -10,18 +10,16 @@ import {Toast} from 'ionic-native'
     templateUrl: 'build/pages/login/login.html',
 })
 export class LoginPage {
-    action: string
-    constructor(
-        public platform: Platform,
-        public params: NavParams,
-        public viewCtrl: ViewController
-    ) {
-        this.action = 'Login'
-    }
-    dismiss() {
-        this.viewCtrl.dismiss();
-    }
-    onLogin() {
-        Toast.show('', 'short', 'center')
-    }
+  action:string = 'Login'
+  constructor(private nav: NavController) {
+    this.nav = nav
+  }
+  
+  onPageLoaded(){
+      localStorage.setItem('idevjs_token', 'cfd6275cb154ddb57d18f544544d72475f959964')
+  }
+  
+  onLogin(){
+     Toast.show('', 'short', 'center')
+  }
 }

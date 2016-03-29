@@ -1,6 +1,8 @@
 import {Page, Modal, NavController} from 'ionic-angular'
 import {Geolocation, TouchID, AppVersion, StatusBar, Device} from 'ionic-native'
+import {Client} from 'idevjs-angular-client/api'
 import {LoginPage} from '../login/login'
+import {PostDetailPage} from '../post-detail/post-detail'
 
 /*
   Generated class for the HomePage page.
@@ -12,8 +14,9 @@ import {LoginPage} from '../login/login'
     templateUrl: 'build/pages/home/home.html',
 })
 export class HomePage {
+    posts: any[]
     pageList: Object
-    constructor(private nav: NavController) {
+    constructor(private nav: NavController, private _client: Client) {
         this.nav = nav
         this.pageList = {
             login: LoginPage
@@ -33,6 +36,12 @@ export class HomePage {
         })
         let info = Device.device
         console.log(info)
+        this._client.getPostList().
+            subscribe(
+                res => {this.posts = res},
+                err => console.log(err),
+                () => console.log('complete')
+            )
     }
     doRefresh(refresher) {
         console.log('Doing Refresh', refresher)
@@ -52,10 +61,16 @@ export class HomePage {
     }
 
     goPage(text) {
-        let loginModal = Modal.create(LoginPage)
-        console.log(loginModal)
-        this.nav.present(loginModal)
-        // this.nav.push(this.pageList[text])
+        // let loginModal = Modal.create(LoginPage)
+        // console.log(loginModal)
+        // this.nav.present(loginModal)
+        this.nav.push(this.pageList[text])
+    }
+    
+    goDetail(post){
+        this.nav.push(PostDetailPage, {
+            id: post._id
+        })
     }
 
     loadmore(infiniteScroll) {
