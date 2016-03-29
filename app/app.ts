@@ -1,5 +1,3 @@
-///<reference path="../node_modules/angular2/typings/browser.d.ts"/>
-///<reference path="../typings/browser/ambient/es6-shim/es6-shim.d.ts"/>
 import {App, IonicApp, Platform} from 'ionic-angular'
 import {HomePage} from './pages/home/home'
 import {ExplorePage} from './pages/explore/explore'

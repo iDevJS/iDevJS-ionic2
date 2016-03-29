@@ -1,4 +1,4 @@
-import {Page, NavController} from 'ionic-angular'
+import {Page, Platform, NavParams, ViewController, NavController} from 'ionic-angular'
 import {Toast} from 'ionic-native'
 /*
   Generated class for the LoginPage page.
@@ -7,15 +7,21 @@ import {Toast} from 'ionic-native'
   Ionic pages and navigation.
 */
 @Page({
-  templateUrl: 'build/pages/login/login.html',
+    templateUrl: 'build/pages/login/login.html',
 })
 export class LoginPage {
-  action:string = 'Login'
-  constructor(private nav: NavController) {
-    this.nav = nav
-  }
-  
-  onLogin(){
-     Toast.show('', 'short', 'center')
-  }
+    action: string
+    constructor(
+        public platform: Platform,
+        public params: NavParams,
+        public viewCtrl: ViewController
+    ) {
+        this.action = 'Login'
+    }
+    dismiss() {
+        this.viewCtrl.dismiss();
+    }
+    onLogin() {
+        Toast.show('', 'short', 'center')
+    }
 }
