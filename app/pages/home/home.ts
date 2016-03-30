@@ -36,12 +36,12 @@ export class HomePage {
         })
         let info = Device.device
         console.log(info)
-        this._client.getPostList().
-            subscribe(
-                res => {this.posts = res},
-                err => console.log(err),
-                () => console.log('complete')
-            )
+        // this._client.getPostList().
+        //     subscribe(
+        //         res => {this.posts = res},
+        //         err => console.log(err),
+        //         () => console.log('complete')
+        //     )
     }
     doRefresh(refresher) {
         console.log('Doing Refresh', refresher)
