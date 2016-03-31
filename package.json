@@ -27,7 +27,6 @@
     "cordova-plugin-console",
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
-    "cordova-plugin-statusbar",
     "ionic-plugin-keyboard",
     "cordova-plugin-actionsheet",
     "phonegap-plugin-barcodescanner",
@@ -38,7 +37,8 @@
     "cordova-plugin-x-toast",
     "cordova-plugin-globalization",
     "cordova-plugin-contacts",
-    "cordova-plugin-inappbrowser"
+    "cordova-plugin-inappbrowser",
+    "cordova-plugin-statusbar"
   ],
   "cordovaPlatforms": [
     "android",
