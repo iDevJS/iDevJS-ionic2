@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import {App, IonicApp, Platform} from 'ionic-angular'
 import {AppVersion, Device, Geolocation, Globalization, Keyboard, StatusBar, TouchID, Toast} from 'ionic-native'
 import {Provider, provide} from 'angular2/core'
@@ -44,8 +45,7 @@ class MyApp {
 
     initializeApp() {
         this.platform.ready().then(() => {
-            StatusBar.overlaysWebView(true)
-            StatusBar.backgroundColorByHexString('#ffb400')
+            StatusBar.styleDefault()
             Geolocation.getCurrentPosition().then(pos => {
                 Toast.showShortCenter('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
             })
