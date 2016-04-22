@@ -23,8 +23,9 @@ export class HomePage {
         }
     }
     onPageLoaded() {
-        StatusBar.overlaysWebView(true)
-        StatusBar.backgroundColorByHexString('#ffb400')
+        StatusBar.overlaysWebView(false)
+        StatusBar.backgroundColorByName('yellow')
+        // StatusBar.backgroundColorByHexString('#ffb400')
         Geolocation.getCurrentPosition().then(pos => {
             console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
         })

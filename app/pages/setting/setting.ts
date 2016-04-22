@@ -13,29 +13,30 @@ import {SettingFontSizePage} from '../setting-font-size/setting-font-size'
 })
 export class SettingPage {
     local: any
-    noPicMode: boolean = false
-    language: string = 'zh'
-    languageMap: Array<any> = [
-        {
-            val:'zh',
-            text:'中文'
-        },{   
-            val:'en',
-            text:'English'
-        }
+    setting = {
+        noPicMode: false,
+        language: 'zh'
+    }
+    languageList = [
+        'zh',
+        'en'
     ]
-    pageList:Object = {
+    languageMap: Object = {
+        'zh': '中文',
+        'en': 'English'
+    }
+    pageList: Object = {
         'settingPushNotification': SettingPushNotificationPage,
         'settingNotification': SettingNotificationPage,
-        'settingFontSize': SettingFontSizePage        
+        'settingFontSize': SettingFontSizePage
     }
     constructor(private nav: NavController) {
         this.nav = nav
         this.local = new Storage(SqlStorage)
         this.local.get('setting.noPicMode')
-            .then((val) => this.noPicMode = val || false)
+            .then((val) => this.setting.noPicMode = val || false)
         this.local.get('setting.language')
-            .then((val) => this.language = val || 'zh')
+            .then((val) => {this.setting.language = val || 'zh'})
     }
     selectLang(val) {
         this.local.set('setting.language', val)

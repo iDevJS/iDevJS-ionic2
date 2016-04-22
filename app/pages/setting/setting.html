@@ -11,7 +11,7 @@
 <ion-content class="setting">
     <ion-list>
         <ion-item>
-            <ion-toggle [(ngModel)]="noPicMode" (ngModelChange)="togglePicMode($event)"></ion-toggle>
+            <ion-toggle [(ngModel)]="setting.noPicMode" (ngModelChange)="togglePicMode($event)"></ion-toggle>
             <ion-label>无图模式</ion-label>
         </ion-item>
         <button class="item" ion-item (click)="goPage('settingFontSize')">
@@ -28,11 +28,9 @@
     </ion-list>
     <ion-list>
         <ion-item>
-            <ion-label (click)="selectLang()">语言</ion-label>
-            <ion-select [(ngModel)]="language" (click)="selectLang()" (ngModelChange)="selectLang($event)">
-                <!--<ion-option *ngFor="#item of languageMap" value="{{item.val}}">{{item.text}}</ion-option>-->
-                <ion-option value="nes">NES</ion-option>
-                <ion-option value="n64">Nintendo64</ion-option>
+            <ion-label>语言</ion-label>
+            <ion-select [(ngModel)]="setting.language" (ngModelChange)="selectLang($event)">
+                <ion-option *ngFor="#key of languageList" value="{{key}}">{{languageMap[key]}}</ion-option>
             </ion-select>
         </ion-item>
     </ion-list>
