@@ -1,5 +1,4 @@
 import {Page, Modal, NavController} from 'ionic-angular'
-import {Geolocation, TouchID, AppVersion, StatusBar, Device} from 'ionic-native'
 import {Client} from 'idevjs-angular-client/api'
 import {LoginPage} from '../login/login'
 import {PostDetailPage} from '../post-detail/post-detail'
@@ -23,26 +22,12 @@ export class HomePage {
         }
     }
     onPageLoaded() {
-        StatusBar.overlaysWebView(false)
-        StatusBar.backgroundColorByName('yellow')
-        // StatusBar.backgroundColorByHexString('#ffb400')
-        Geolocation.getCurrentPosition().then(pos => {
-            console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
-        })
-        AppVersion.getVersionCode().then(code => {
-            console.log(code)
-        })
-        AppVersion.getVersionNumber().then(version => {
-            console.log(version)
-        })
-        let info = Device.device
-        console.log(info)
-        // this._client.getPostList().
-        //     subscribe(
-        //         res => {this.posts = res},
-        //         err => console.log(err),
-        //         () => console.log('complete')
-        //     )
+        this._client.getPostList().
+            subscribe(
+            res => { this.posts = res },
+            err => console.log(err),
+            () => console.log('complete')
+            )
     }
     doRefresh(refresher) {
         console.log('Doing Refresh', refresher)
@@ -67,8 +52,8 @@ export class HomePage {
         // this.nav.present(loginModal)
         this.nav.push(this.pageList[text])
     }
-    
-    goDetail(post){
+
+    goDetail(post) {
         this.nav.push(PostDetailPage, {
             id: post._id
         })
