@@ -1,5 +1,5 @@
 import {Page, Modal, NavController} from 'ionic-angular'
-import {Client} from 'idevjs-angular-client/api'
+import {Client} from 'idevjs-angular-client'
 import {LoginPage} from '../login/login'
 import {PostDetailPage} from '../post-detail/post-detail'
 

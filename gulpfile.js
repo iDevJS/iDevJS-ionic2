@@ -43,8 +43,7 @@ gulp.task('watch', ['clean'], function (done) {
         watch: true,
         src: [
           './app/app.ts',
-          './typings/main.d.ts',
-          './node_modules/idevjs-angular-client/api.ts'
+          './typings/main.d.ts'
         ],
         browserifyOptions: {
           extensions: ['.js', '.ts']
@@ -61,8 +60,7 @@ gulp.task('build', ['clean'], function (done) {
       buildBrowserify({
         src: [
           './app/app.ts',
-          './typings/main.d.ts',
-          './node_modules/idevjs-angular-client/api.ts'
+          './typings/main.d.ts'
         ]
       }).on('end', done);
     }
