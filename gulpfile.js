@@ -43,9 +43,12 @@ gulp.task('watch', ['clean'], function (done) {
         watch: true,
         src: [
           './app/app.ts',
-          './typings/main.d.ts', 
+          './typings/main.d.ts',
           './node_modules/idevjs-angular-client/api.ts'
-        ]
+        ],
+        browserifyOptions: {
+          extensions: ['.js', '.ts']
+        }
       }).on('end', done);
     }
   );
@@ -55,7 +58,13 @@ gulp.task('build', ['clean'], function (done) {
   runSequence(
     ['sass', 'html', 'fonts', 'scripts'],
     function () {
-      buildBrowserify().on('end', done);
+      buildBrowserify({
+        src: [
+          './app/app.ts',
+          './typings/main.d.ts',
+          './node_modules/idevjs-angular-client/api.ts'
+        ]
+      }).on('end', done);
     }
   );
 });

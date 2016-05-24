@@ -1,5 +1,5 @@
 import {Page, NavController, NavParams} from 'ionic-angular'
-import {Client} from 'idevjs-angular-client/api'
+import {Client} from 'idevjs-angular-client'
 
 /*
   Generated class for the PostDetailPage page.
